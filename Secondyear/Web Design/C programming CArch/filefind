@@ -1,0 +1,2 @@
+du -a /home/se215079 |grep $1
+

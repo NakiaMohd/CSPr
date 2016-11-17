@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+$("#div2").hide();
+    $("div").hover(function(){
+        $("#div1").fadeOut();
+		$("#div2").fadeIn(2000);
+    });
+});
+</script>
+</head>
+<body>
+<p>Image fades in and new image will fade in </p>
+
+<div id="div1" style="width:80px;height:80px;background-color:yellow;"></div>
+<div id="div2" style="width:80px;height:80px;background-color:orange;"></div>
+
+</body>
+</html>

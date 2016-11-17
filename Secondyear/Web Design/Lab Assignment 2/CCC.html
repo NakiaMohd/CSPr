@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Catch it,Check it,Change it</title>
+	<link href="style.css" rel="stylesheet">
+	
+<!--<script src="site.js" type = "text/javascript"></script>-->
+<footer id="foot"></footer>
+
+<script type="text/javascript">
+
+
+function newCookie(name,value,days) {
+var days = 10;// the number at the left reflects the number of days for the cookie to last
+     // modify it according to your needs
+if (days) {
+var date = new Date();
+date.setTime(date.getTime()+(days*24*60*60*1000));
+var expires = "; expires="+date.toGMTString(); 
+}
+else {var expires = ""}
+document.cookie = name+"="+value+expires+"; path=/"; 
+}
+
+function readCookie(name) {
+var nameSG = name + "=";
+var nuller = '';
+if (document.cookie.indexOf(nameSG) == -1) {return nuller}
+var ca = document.cookie.split(';');
+for(var i=0; i<ca.length; i++) {
+var c = ca[i];
+while (c.charAt(0)==' ') c = c.substring(1,c.length);
+if (c.indexOf(nameSG) == 0) return c.substring(nameSG.length,c.length);
+}
+return null;
+}
+
+function eraseCookie(name) {
+newCookie(name,"",1); 
+}
+
+function toMem(a) {
+newCookie('When/Where', document.myform.ww.value);  
+newCookie ('Event', document.myform.ev.value);  
+newCookie('Emotion', document.myform.em.value);   
+newCookie ('Automatic', document.myform.auto.value);  
+newCookie('Rational response', document.myform.rr.value); 
+}
+
+function delMem(a) {
+eraseCookie('When/Where');  // make sure to add the eraseCookie function for every field
+eraseCookie('Event');  
+eraseCookie('Emotion');
+eraseCookie('Automatic');  
+eraseCookie('Rational response');
+document.myform.ww.value = '';  // add a line like this for every field
+document.myform.ev.value = '';
+document.myform.em.value = '';
+document.myform.auto.value = '';
+document.myform.rr.value = '';
+}
+
+function remCookie() {
+document.myform.ww.value = readCookie("When/Where");
+document.myform.ev.value = readCookie("Event");
+document.myform.em.value = readCookie("Emotion");
+document.myform.ev.value = readCookie("Automatic");
+document.myform.em.value = readCookie("Rational response");
+
+function addLoadEvent(func) {
+var oldonload = window.onload;
+if (typeof window.onload != 'function') {
+window.onload = func;
+} 
+else {
+window.onload = function() {
+if (oldonload) {
+oldonload();
+}
+func();
+}
+}
+}
+
+addLoadEvent(function() {
+remCookie();
+});
+
+	function myFunction() {
+	var x=escape(document.myform.When/Where.value);
+	
+	document.cookie="Hello: "+x;
+	document.getElementById("ww").innerHTML = document.cookie;
+	
+}
+
+</script>
+
+
+</head>
+
+<body>
+	<p><b>Blank diary: <b></p>
+	<!--
+<div class="all">
+-->
+<table style="width:100%">
+<tr>
+    <th>When/Where</th>
+    <th>Event</th>		
+    <th>Emotion</th>
+    <th>Automatic</th>		
+    <th>Rational response</th>
+ </tr>
+ 
+	<form name="myform" action="" method="post" onsubmit="if (this.checker.checked) toMem(this)">
+		<tr>
+			<td><textarea type = "text" name="ww" rows="30" id="ww" ></textarea></td>
+			<td><textarea type = "text" name="ev" rows="30" id="ev"></textarea></td>
+			<td><textarea type = "text" name="em" rows="30" id="em"></textarea></td>
+			<td><textarea type = "text" name="auto"rows="30" id="auto"></textarea></td>
+			<td><textarea type = "text" name="rr" rows="30" id="rr"></textarea></td>
+		</tr>
+		
+		Remember me? <input type="checkbox" id="checker" name="checker"> &nbsp&nbsp
+		<input type="submit" value="Submit" >
+		<input type="reset" value="Reset"> 
+		<input type="button" onclick="delMem(this)" value="Delete Information">
+		<input type="button" onclick="myFunction()" value="Display">
+	</form>
+	
+</table>
+
+
+    
+
+
+	  
+	  
+<!--<button id="save">Save Entry</button>
+<button id="load">Show Diary</button>
+-->
+
+</body>
+</html>

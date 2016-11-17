@@ -1,0 +1,57 @@
+body {
+    background: #660066 ;
+    color:white;
+    font-family:Arial;
+}
+p :nth-child(1){
+	font-family:Sans-serif; 
+	font-size:20px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th{
+   background-color:#b300b3;
+   margin: center;
+   font-size:17px;
+   padding: 10px;
+}
+
+textarea{
+   background-color:#ffb3ff;
+   resize: none;
+   vertical-align:top;
+   width: 100%;
+   margin: center;
+}
+td{
+     color=white;
+}
+
+button{
+	border: 3px solid #ffb3ff;
+	background-color:#ffb3ff;
+	font-family:Sans-serif; 
+	font-size:15px;
+	border-radius: 8px;
+	-webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+	float: left;
+	margin: 80px;
+}
+button:hover {
+    background-color: #b300b3;
+    color: white;
+}
+#cookie {
+    color: #505050;
+}
+#foot{
+	background: #660066 ;
+    color:white;
+    font-family:Arial;
+	float: left;
+}

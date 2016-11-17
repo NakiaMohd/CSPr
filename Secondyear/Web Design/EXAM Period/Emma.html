@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+$("#div2").hide();
+    $("div").hover(function(){
+        $("#div1").fadeOut();
+		$("#div2").fadeIn(2000);
+    });
+});
+</script>
+</head>
+<body>
+<p>Image fades in and new image will fade in </p>
+
+<div id="div1" style="width:80px;height:80px;background-color:yellow;"><img src="https://pbs.twimg.com/profile_images/562466745340817408/_nIu8KHX.jpeg"/></div>
+<div id="div2" style="width:80px;height:80px;background-color:orange;"><img src="http://vignette3.wikia.nocookie.net/fantheories/images/4/4e/Fnacpantherimage.toutlecine.com-photos-g-a-r-garfield-serie-tv-10-g.jpg/revision/latest?cb=20140805022614"/></div>
+
+</body>
+</html>
